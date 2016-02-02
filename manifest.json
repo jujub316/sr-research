@@ -4,13 +4,13 @@
   "version": "0.1",
   "content_scripts": [
   {
-    "background": {
-  "scripts": ["background.js"]
-    }
     "matches": [
       "<all_urls>"
     ],
     "js": ["content.js"]
   }
+   "background": {
+  "scripts": ["background.js"]
+    }
 ]
 }
