@@ -9,16 +9,18 @@
    "default_icon": "icon.png",
    "default_popup": "popup.html"
   },
-  "permissions": [
+"permissions": [
    "tabs",
-   "<all_urls>"
-   ],
-    "content_scripts": [
-   {
-     "matches": ["<all_urls>"],
-     "js": ["selection.js"],
-     "run_at": "document_start",
-     "all_frames": true
-   }
+   "chrome://favicon/",
+   "http://*/*", 
+   "https://*/*"
+ ],
+ "content_scripts": [
+  {
+    "matches": ["http://*/*"],
+    "js": ["selection.js"],
+    "run_at": "document_start",
+    "all_frames": true
+  }
  ]
 }
