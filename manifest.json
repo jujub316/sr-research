@@ -10,6 +10,15 @@
    "default_popup": "popup.html"
   },
   "permissions": [
-   "activeTab"
-   ]
+   "tabs",
+   "<all_urls>"
+   ],
+    "content_scripts": [
+   {
+     "matches": ["<all_urls>"],
+     "js": ["selection.js"],
+     "run_at": "document_start",
+     "all_frames": true
+   }
+ ]
 }
