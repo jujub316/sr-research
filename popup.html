@@ -1,28 +1,15 @@
 <!DOCTYPE html> 
 <html>
 <head>
+<script src="jquery-1.8.3.min.js"></script>
+<script src="popup.js"></script>
 <style>
   body { width: 300px; }
   textarea { width: 250px; height: 100px;}
 </style>
-<script>
-function pasteSelection() {
-  chrome.tabs.query(null, function(tab)) {
-    chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function (response) {
-      var selection = window.getSelection(); 
-	var range = selection.getRangeAt(0); 
-	if (range) { 
-  		var div = document.createElement('div'); 
-  		div.appendChild(range.cloneContents()); 
-  		alert(div.innerHTML); 
-}
-    });
-  });
-}
-</script>
 </head>
 <body>
 <textarea id="text"> </textarea>
-<button onclick="pasteSelection()">Paste Selection</button>
+<button id="paste">Paste Selection</button>
 </body>
 </html>
