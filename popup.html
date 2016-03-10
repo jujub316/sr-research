@@ -3,6 +3,7 @@
 <head>
 <script src="jquery-1.8.3.min.js"></script>
 <script src="popup.js"></script>
+
 <style>
   body { width: 300px; }
   textarea { width: 250px; height: 100px;}
@@ -11,5 +12,22 @@
 <body>
 <textarea id="text"> </textarea>
 <button id="paste">Paste Selection</button>
+<!--start of changes -->
+<script>
+(function() {
+  var thesAPI = "http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/word/json";
+  $.getJSON( thesAPI, {{"adjective":{"syn":[0]}}});
+  })
+    .done(function( data ) {
+     // $.each( data.items, function( i, item ) {
+       // $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+       // if ( i === 3 ) {
+       //   return false;
+        }
+      });
+    });
+})();
+</script>
+<!--end of changes -->
 </body>
 </html>
