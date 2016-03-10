@@ -3,10 +3,16 @@ $(function(){
 });
 function pasteSelection() {
   //start of changes
-      alert("1");
-      $.getJSON("http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/cool/json", function(json) {
-      console.log(json);
-      alert("2"); 
+       $.getJSON("http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/word/json", function(json) {
+               if (json != "Nothing found."){
+                     alert("u failed");
+                 
+               } else {
+                     $.getJSON("http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/word/json", function(json) {
+                        alert(json);
+                     });
+                  }
+             });
       //end of changes
   chrome.tabs.query({active:true, windowId: chrome.windows.WINDOW_ID_CURRENT}, 
   function(tab) {
