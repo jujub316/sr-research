@@ -10,19 +10,19 @@ function pasteSelection() {
       var text = document.getElementById('text'); 
       text.innerHTML = response.data;
        //start of changes
-       $.getJSON("http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/word/json", function(json) {
-               if (1==0){
-                     alert("u failed");
-                     console.log("heyo");
+       //$.getJSON("http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/word/json", function(json) {
+             //  if (1==0){
+                //     alert("u failed");
+               //      console.log("heyo");
                  
-               } else {
-                     $.getJSON("http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/word/json", function(json) {
-                        alert(json);
-                        console.log("peyo");
+              // } else {
+              //       $.getJSON("http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/word/json", function(json) {
+               //         alert(json);
+               //         console.log("peyo");
                         //console.log(json);
-                     });
-                  }
-             });
+               //      });
+             //     }
+          //   });
       //end of changes
     });
   });
