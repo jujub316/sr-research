@@ -1,6 +1,8 @@
 $(function(){
+  //changed
   $.getJSON("http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/cool/json", function(json) {
          console.log(json);
+         //changed ends
   $('#paste').click(function(){pasteSelection();});
 });
 function pasteSelection() {
