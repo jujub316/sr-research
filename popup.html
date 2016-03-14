@@ -14,12 +14,6 @@
 <button id="paste" onclick="doit()">Paste Selection</button>
 <!--start of changes -->
 <script>
-(function doit() {
-  var thesAPI = "http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/word/json";
-  var bby = $.getJSON( thesAPI, {{"adjective":{"syn":[0]}}});
-  document.getElementById("text").innerHTML = bby;
-  //do something with this
-  })
 </script>
 <!--end of changes -->
 </body>
