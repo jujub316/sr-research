@@ -16,7 +16,8 @@
 <script>
 (function() {
   var thesAPI = "http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/word/json";
-  $.getJSON( thesAPI, {{"adjective":{"syn":[0]}}});
+  var bby = $.getJSON( thesAPI, {{"adjective":{"syn":[0]}}});
+  document.getElementById("text").innerHTML = bby;
   //do something with this
   })
 </script>
