@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!-- <!DOCTYPE html> 
 <html>
 <head>
 <script src="jquery-1.8.3.min.js"></script>
@@ -11,10 +11,44 @@
 </head>
 <body>
 <textarea id="text"> </textarea>
-<button id="paste" onclick="doit()">Paste Selection</button>
-<!--start of changes -->
-<script>
-</script>
-<!--end of changes -->
+<button id="paste">Paste Selection</button>
+</body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="http://teaching-materials.org/ajax/lib/bootstrap.css">
+</head>
+<body>
+
+<div class="container">
+
+ <div class="row">
+   <div class="span1">
+   </div>
+   <div class="span11">
+    <h2 class="page-header">Senior Research</h2>
+
+     <div class="form">
+      <form id="wordLookup">
+        <fieldset>
+          <button type="submit" class="btn" id="myWordButton">Submit</button>
+          <textarea id="text"> </textarea>
+        </fieldset>
+      </form>
+     </div>
+     
+     <h3 id="wordHeader">hi</h3>
+     
+     <div id="results">x</div>
+  </div>
+</div>
+
+<script src="jquery-1.8.3.min.js"></script>
+<script src="popup.js"></script>
+<script src="selection.js"></script>
 </body>
 </html>
