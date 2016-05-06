@@ -1,34 +1,8 @@
-// //import java.io.FileNotFoundException; 
-// import java.io.FileReader; 
-// import java.io.IOException; 
-// // import java.util.Iterator; 
-// // import org.json.simple.JSONArray; 
-// // import org.json.simple.JSONObject; 
-// // import org.json.simple.parser.JSONParser; 
-// // import org.json.simple.parser.ParseException;
-
 // add a click listener for the button
 $('button#myWordButton').click(function(event) {
-  //word = pasteSelection();
   pasteSelection();
   event.preventDefault();
-
-
-//moved this to the pasteSelection method:
-  // if (word.length > 0) {
-  //   $.ajax({
-  //     type: 'GET',
-  //     dataType: 'jsonp',
-  //     url: 'http://words.bighugelabs.com/api/2/fa90ea6b99f8e8552983850e993a1f7c/' + word + '/json',
-  //     success: function(json) {
-  //       displayResults(word, json);
-  //     }
-  //   });
-  // } else {
-  //   alert("You must highlight a single word!");
-  // }
 });
-
 
 // process JSON and add the results to the page
 function displayResults(originalWord, json) {
@@ -78,20 +52,35 @@ function pasteSelection() {
   function(tab) {
     chrome.tabs.sendMessage(tab[0].id, {method: "getSelection"}, 
     function(response){
-      //foo(response.data);
       var textbox = document.getElementById('text'); 
-      // console.log(2);
-      // console.log(response);
-      // console.log(response.data);
-      // console.log(1);
-      word = String(response.data);
-      textbox.innerHTML = word;
-      //return word;
+      words = String(response.data);
+      textbox.innerHTML = words;
+
+      words = words.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+      words = words.replace(/\s{2,}/g," ");
+      words = words.replace(/['"]+/g, '');
+      var wordsArr = words.split(" ");
+      var wordsMap = {};
+
+      for (i = 0; i < wordsArr.length; i++) 
+      { 
+         w = wordsArr[i];
+         if (!(w in wordsMap))
+            wordsMap[w] = 1;
+         else 
+          wordsMap[w] = wordsMap[w]+1;
+      }
+
+for (var key in wordsMap) {
+  if (wordsMap.hasOwnProperty(key)) {
+    console.log(key + " -> " + wordsMap[key]);
+  }
+}
+
+      word = "science";
 
       var headera = document.getElementById('wordHeader'); 
       headera.innerHTML = ('Results for: ' + word);
-
-      // console.log(word);
 
 //from above
     if (word.length > 0) {
